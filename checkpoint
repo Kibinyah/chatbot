@@ -1,0 +1,2 @@
+model_checkpoint_path: "/Users/kevinpan/PycharmProjects/Chatbot/venv/brains.tflearn"
+all_model_checkpoint_paths: "/Users/kevinpan/PycharmProjects/Chatbot/venv/brains.tflearn"

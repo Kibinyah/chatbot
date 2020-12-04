@@ -1,0 +1,149 @@
+{"intents": [
+  {
+    "tag": "greeting",
+    "patterns": ["Hi", "Hey", "Is anyone there?", "Hello", "Good day", "Good morning", "Good afternoon"],
+    "responses": ["Hello!", "Good to see you", "Hi", "Hey, How can I help?"]
+  },
+  {
+    "tag": "wassup",
+    "patterns": ["How are you","Wassup","What is up","how are you doing","hows life","what have you been up to","How is it going"],
+    "responses": ["Doing good, here to help","Nothing much, just chilling","Doing just fine, what can I help you with?"]
+  },
+  {
+    "tag": "goodbye",
+    "patterns": ["Bye", "Goodbye", "Later", "Bye bye", "I am going now", "See you later", "Farewell"],
+    "responses": ["Farewell", "Goodbye Friend", "Talk to you soon", "Sayonara"]
+  },
+  {
+    "tag": "name",
+    "patterns": ["What is your name?", "What should I call you?", "Your name?", "Who are you?", "What are you?"],
+    "responses": ["My name is Medic Bot", "I am called Medic Bot"]
+  },
+  {
+    "tag": "thanks",
+    "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+    "responses": ["Happy to help!", "Any time!", "My pleasure", "no problem"]
+  },
+  {
+    "tag": "options",
+    "patterns": [
+      "How could you help me?",
+      "What you can do?",
+      "What help you provide?",
+      "How you can be helpful?",
+      "What support is offered",
+      "I need help",
+      "What do you do?"
+    ],
+    "responses": [
+      "I can tell you information about illnesses/diseases/allergies. I can also check your coronavirus symptoms and see if you need medical help"
+    ]
+  },
+  {
+    "tag": "checkSymptoms",
+    "patterns": [
+      "Can I check my coronavirus symptoms?",
+      "Can I find out if I have coronavirus symptoms?",
+      "What do I do if I have symptoms?",
+      "Check my symptoms"
+    ],
+    "responses": [
+      "Sure, I will ask you a series of questions and you must reply with either yes or no.\n\n Type Start to begin:"
+    ]
+  },
+  {
+    "tag": "yes",
+    "patterns": ["yes", "yeah", "yep", "indeed", "positive", "sure","I think so"],
+    "responses": []
+  },
+  {
+    "tag": "no",
+    "patterns": ["no", "nope", "nah", "never","negative", "no way"],
+    "responses": []
+  },
+  {
+    "tag": "start",
+    "patterns": ["start","begin","start now"],
+    "responses": []
+  },
+  {
+    "tag": "cough",
+    "patterns": ["I have been coughing",
+      "I have some dry coughs",
+      "I experienced some frequent coughing",
+      "I cannot stop coughing",
+      "I have recent continuous coughs",
+      "I have cough symptoms",
+      "I have coughs"],
+    "responses": []
+  },
+  {
+    "tag": "noCough",
+    "patterns": ["I have not been coughing","no coughing","I do not seem to be coughing","I am not coughing"],
+    "responses": []
+  },
+  {
+    "tag": "fever",
+    "patterns": ["I have a high fever", "I feel a high temperature on my body","My head feels hot to touch","I do have a fever"],
+    "responses": []
+  },
+  {
+    "tag": "noFever",
+    "patterns": ["I dont have a fever", "I do not seem to have a fever","no fever","I have no fever"],
+    "responses": []
+  },
+  {
+    "tag": "severe",
+    "patterns": ["I do have severe symptoms","My symptoms are severe","I have intense symptoms","severe symptoms"],
+    "responses": []
+  },
+  {
+    "tag": "notSevere",
+    "patterns": ["My symptoms are not severe","My symptoms are mild","I have mild symptoms","mild symptoms","I do not have any severe symptoms"],
+    "responses": []
+  },
+  {
+    "tag": "fever+cough",
+    "patterns": ["I have coughs and fever",
+      "Been experiencing frequent coughs and a high temperature",
+      "I feel a high fever and having dry coughs",
+      "My body feels very hot and I have been coughing"
+    ],
+    "responses": []
+  },
+  {
+    "tag": "fever+severe",
+    "patterns": ["I have a very painful fever",
+      "I feel a severely high temperature on my body",
+      "My head feels too hot for comfort",
+      "I have a really bad fever",
+      "I have a severe fever"
+    ],
+    "responses": []
+  },
+  {
+    "tag": "cough+severe",
+    "patterns": ["I have severe dry coughs",
+      "I have painful dry coughs",
+      "I experienced some frequent coughing that is very severe",
+      "I cannot stop coughing and it hurts",
+      "I have recent continuous intense coughs"
+    ],
+    "responses": []
+  },
+  {
+    "tag": "cough+fever+severe",
+    "patterns": ["I have been frequently coughing and a very high fever, my symptoms are very severe",
+      "I have severe coughing and fever",
+      "I am experiencing intense coughing and a burning fever",
+      "My head feels painfully hot and I have frequent intense dry coughs"
+    ],
+    "responses": []
+  },
+  {
+    "tag": "search",
+    "patterns": ["What is a","What is", "What do you know about"],
+    "responses": []
+  }
+]
+}

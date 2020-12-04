@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medic Bot</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/
+    bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class=container">
+        <div class="msg-header">
+            <div class="msg-header-image">
+                <img src="roboticon.gif">
+            </div>
+            <div class="active">
+                <h4>Medic Bot</h4>
+            </div>
+        </div>
+        <div class="chat-page">
+            <div class="msg-inbox">
+                <div class="chats">
+                    <div class="msg-page">
+
+                        <div class="received-chats">
+                            <div class="received-chats-image">
+
+                            </div>
+                            <div class="received-msg">
+                                <div id="chatbox" class="received-msg-inbox">
+                                    <p>I am MedicBot</p>
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="outgoing-chats">
+                            <div class="outgoing-chats-image">
+
+                            </div>
+                            <div class="outgoing-msg">
+                                <div id="chatbox2" class="outgoing-msg-inbox">
+                                    <p>Hi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="msg-bottom">
+                <form action="/process" method="POST">
+                <div id="userInput" class="input-group">
+                    <input id="textInput" type="text" class="form-control" name="msg" placeholder="Write Message...">
+
+                    <input id="buttonInput" class="btn btn-success form-control" type="submit" value="Send">
+                </div>
+                </form>
+            </div>
+            </div>
+    </div>
+        <script>
+            function getResponse(){
+                let userText = $("#textInput").val();
+                let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
+                $("#textInput").val("");
+                #("#chatbox").append(userHtml);
+                document.getElementById('userInput').scrollIntoView({block: 'start, behavior: 'smooth'});
+                $.get("/get", {msg: userText}).done(function(data){
+                var botHtml = '<p class="botText"><span>' + data + '<span></p>';
+                $("#chatbox").append(botHtml);
+                document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+                });
+            }
+            $("#textInput").keypress(function(e){
+            //When the enter key has been pressed
+                if(e.which == 13){
+                    getResponse();
+                }
+            });
+
+            $("#buttonInput").click(function(){
+                getResponse();
+             });
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cludfare.come/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </div>
+</body>
+</html>

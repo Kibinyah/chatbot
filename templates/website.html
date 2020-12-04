@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Medic Bot</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <section class="messenger">
+    <header class="header">
+      <div class="title">
+          Medical Chatbot
+      </div>
+    </header>
+
+    <main class="chat">
+      <div class="message left-message">
+
+        <div class="message-bubble">
+          <div class="message-info">
+            <div class="message-name">Medic Bot</div>
+          </div>
+
+          <div class="message-text">
+            Hello there, I am Medic bot. Send me any message!😄
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <form class="messenger-area">
+      <input type="text" class="messenger-input" id="textInput" placeholder="Enter message">
+      <button type="submit" class="messenger-button">Send</button>
+    </form>
+  </section>
+  <!-- JavaScript code for message handling -->
+  <script>
+    const BOT_IMAGE = "https://image.flaticon.com/icons/svg/327/327796.svg";
+    const PERSON_IMAGE = "https://image.flaticon.com/icons/svg/145/145871.svg";
+    const BOT_NAME = "Medic Bot";
+    const PERSON_NAME = "You";
+
+    const area = get(".messenger-area");
+    const input = get(".messenger-input");
+    const chat = get(".chat");
+
+    function get(selector, root = document) {
+      return root.querySelector(selector);
+    }
+    //Time
+    function formatDate(date) {
+      const hour = "0" + date.getHours();
+      const min = "0" + date.getMinutes();
+
+      return `${hour.slice(-2)}:${min.slice(-2)}`;
+    }
+
+    function appendMessage(name, image, side, text) {
+      const HTML = `
+      <div class="message ${side}-message">
+        <div class="message-image" style="background-image: url(${image})"></div>
+        <div class="message-bubble">
+          <div class="message-info">
+            <div class="message-name">${name}</div>
+            <div class="message-time">${formatDate(new Date())}</div>
+          </div>
+          <div class="message-text">${text}</div>
+        </div>
+      </div>
+      `;
+
+      chat.insertAdjacentHTML("beforeend", HTML);
+      chat.scrollTop += 500;
+    }
+
+    function botResponse(userText) {
+      $.get("/get", { msg: userText }).done(function (data) {
+        console.log(userText);
+        console.log(data);
+        const text = data;
+        appendMessage(BOT_NAME, BOT_IMAGE, "left", text);
+      });
+    }
+
+    area.addEventListener("submit", event => {
+      event.preventDefault();
+      const text = input.value;
+      if (!text) return;
+
+      appendMessage(PERSON_NAME, PERSON_IMAGE, "right", text);
+      input.value = "";
+      botResponse(text);
+    });
+
+  </script>
+
+</body>
+
+</html>
